@@ -25,11 +25,11 @@ app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
-    res.json({"PUES CONSIGUE LA PLATA": "CARAJITA"})
+    res.json({"test": "test"})
 });
 
 
-app.get('/api/user/auth', auth, (req, res) => {
+app.get('/api/users/auth', auth, (req, res) => {
     res.status(200).json({
         _id: req._id,
         isAuth: true,
@@ -60,7 +60,7 @@ app.post('/api/users/register', (req, res) => {
 del usuario concuerden con lo que esta almacenado en su registro 
 dentro de la BD, permitiendole que inicie la sesion.
 Tambien general el token de identificacion*/
-app.post('/api/user/login', (req, res) => {
+app.post('/api/users/login', (req, res) => {
     User.findOne({email: req.body.email}, (err, user) => {
         if(!user)
         return res.json({
@@ -87,7 +87,7 @@ app.post('/api/user/login', (req, res) => {
 });
 
 //Con esta funcion permitios que el usuario termine sesion
-app.get('/api/user/logout', auth, (req, res) => {
+app.get('/api/users/logout', auth, (req, res) => {
     User.findOneAndUpdate({_id: req.user._id}, {token:""}, (err, doc) => {
         if(err) return res.json({success: false, err})
         return res.status(200).send({
