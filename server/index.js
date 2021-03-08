@@ -90,5 +90,10 @@ app.get('/api/user/logout', auth, (req, res) => {
     });
 });
 
+//Permite que la app decida si utilizar cliente(heroku) o el port 5000
+const port = process.env.PORT || 5000;
+
 //Puerto donde el servidor se encontrara
-app.listen(5000);
+app.listen(port, () => {
+    console.log(`Servidor se encuentra funcionando por ${port}`)
+});
