@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 
 app.get('/', (req, res) => {
-    res.json({"LO LOGRAMOS": "SIUUUUUUUUUU"})
+    res.json({"PUES CONSIGUE LA PLATA": "CARAJITA"})
 });
 
 
