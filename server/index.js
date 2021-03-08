@@ -23,6 +23,12 @@ app.use(bodyParser.json());
 //con esto activamos las galletas xd
 app.use(cookieParser());
 
+
+app.get('/', (req, res) => {
+    res.json({"LO LOGRAMOS": "SIUUUUUUUUUU"})
+});
+
+
 app.get('/api/user/auth', auth, (req, res) => {
     res.status(200).json({
         _id: req._id,
